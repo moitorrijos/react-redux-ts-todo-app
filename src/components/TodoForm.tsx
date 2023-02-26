@@ -1,5 +1,5 @@
 import React from 'react';
-import './TodoForm.css';
+import styles from './TodoForm.module.css';
 import { useAppDispatch } from '../app/hooks';
 
 function TodoForm() {
@@ -12,13 +12,13 @@ function TodoForm() {
   return (
     <form onSubmit={addTask}>
       <label>What do you need to do today?</label>
-      <div className="todo-input-button">
+      <div className={styles["todo-input-button"]}>
         <input
           type="text"
           name="new-todo"
           placeholder="Conquer the world!"
         />
-        <button className='add-task' type="submit">Add Todo</button>
+        <button className={styles['add-task']} type="submit">Add Todo</button>
       </div>
     </form>
   );

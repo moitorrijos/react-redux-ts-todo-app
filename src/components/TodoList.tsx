@@ -14,12 +14,14 @@ function TodoList() {
   }
   function handleDelete(event: React.MouseEvent<HTMLButtonElement>) {
     const payload = event.currentTarget.dataset.id
-      ? event.currentTarget.dataset.id
+      ? +event.currentTarget.dataset.id
       : 0
-    dispatch({ type: "todo/deleteTodo", payload: +payload })
+    dispatch({ type: "todo/deleteTodo", payload })
   }
   function handleChecked(event: React.ChangeEvent<HTMLInputElement>) {
-    const id = event.currentTarget.dataset.id ? event.currentTarget.dataset.id : 0
+    const id = event.currentTarget.dataset.id
+      ? +event.currentTarget.dataset.id
+      : 0
     dispatch({
       type: "todo/toggleTodo",
       payload: {
@@ -32,7 +34,7 @@ function TodoList() {
     <ul className="todo-list">
       {todos.length ? (
         todos.map((todo) => (
-          <li key={todo.id} className={todo.completed ? "completed": ""}>
+          <li key={todo.id} className={todo.completed ? "completed" : ""}>
             <span className="text">
               <input
                 type="checkbox"
