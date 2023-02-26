@@ -7,11 +7,12 @@ function TodoForm() {
   function addTask(event: React.FormEvent<HTMLFormElement>) {
     const input = event.currentTarget[0] as HTMLInputElement;
     event.preventDefault();
-    dispatch({ type: 'todo/addTodo', payload: input.value})
+    dispatch({ type: 'todo/addTodo', payload: input.value })
+    input.value = '';
   }
   return (
     <form onSubmit={addTask}>
-      <label>What do you need to do today?</label>
+      <label>What are we going to do today?</label>
       <div className={styles["todo-input-button"]}>
         <input
           type="text"

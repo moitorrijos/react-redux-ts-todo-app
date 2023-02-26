@@ -1,5 +1,6 @@
 import React from "react"
-import "./TodoList.css"
+import { TransitionGroup, CSSTransition } from "react-transition-group"
+import styles from "./TodoList.module.css"
 import { useAppSelector, useAppDispatch } from "../app/hooks"
 import DeleteIcon from "./DeleteIcon"
 
@@ -31,36 +32,41 @@ function TodoList() {
     })
   }
   return (
-    <ul className="todo-list">
-      {todos.length ? (
-        todos.map((todo) => (
-          <li key={todo.id} className={todo.completed ? "completed" : ""}>
-            <span className="text">
-              <input
-                type="checkbox"
-                data-id={todo.id.toString()}
-                checked={todo.completed}
-                onChange={handleChecked}
-              />
-              <input
-                type="text"
-                id={todo.id.toString()}
-                defaultValue={todo.text}
-                onChange={handleChange}
-              />
-            </span>
-            <button
-              data-id={todo.id.toString()}
-              className="delete-task"
-              onClick={handleDelete}
-            >
-              <DeleteIcon />
-            </button>
-          </li>
-        ))
-      ) : (
-        <li>No todos, yay!</li>
-      )}
+    <ul className={styles["todo-list"]}>
+      <TransitionGroup component={null}>
+        {todos.length && (
+          todos.map((todo) => (
+            <CSSTransition key={todo.id} timeout={600} classNames="list">
+              <li
+                key={todo.id}
+                className={todo.completed ? styles.completed : ""}
+              >
+                <span className={styles.text}>
+                  <input
+                    type="checkbox"
+                    data-id={todo.id.toString()}
+                    checked={todo.completed}
+                    onChange={handleChecked}
+                  />
+                  <input
+                    type="text"
+                    id={todo.id.toString()}
+                    defaultValue={todo.text}
+                    onChange={handleChange}
+                  />
+                </span>
+                <button
+                  data-id={todo.id.toString()}
+                  className={styles["delete-task"]}
+                  onClick={handleDelete}
+                >
+                  <DeleteIcon />
+                </button>
+              </li>
+            </CSSTransition>
+          ))
+        )}
+      </TransitionGroup>
     </ul>
   )
 }

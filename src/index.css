@@ -1,7 +1,8 @@
 :root {
   --midnight-blue: #14213d;
   --gold: #fca311;
-  --light-gray: #e5e5e5;
+  --light-gray: #a3a3a3;
+  --dark-gray: #4d4d4d;
 }
 button {
   all: unset;
@@ -15,7 +16,33 @@ body {
   background-color: var(--midnight-blue);
   display: grid;
   place-items: center;
+  color: var(--dark-gray);
+  font-size: 16px;
 }
 button {
   cursor: pointer;
+}
+
+input {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* React Transition Group */
+.list-enter {
+  transition: all 0.6s ease-out;
+  opacity: 0;
+  background-color: #fdc465;
+}
+.list-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+.list-exit {
+  opacity: 1;
+}
+.list-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
 }
