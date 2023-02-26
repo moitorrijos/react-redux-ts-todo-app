@@ -1,0 +1,11 @@
+.App {
+  font-family: "Space Mono", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-top: 0.5rem solid var(--gold);
+  color: var(--midnight-blue);
+  background-color: white;
+  width: 70vw;
+  min-width: 380px;
+  max-width: 600px;
+}

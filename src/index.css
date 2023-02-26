@@ -1,0 +1,20 @@
+:root {
+  --midnight-blue: #14213d;
+  --gold: #fca311;
+  --light-gray: #e5e5e5;
+}
+button {
+  all: unset;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background-color: var(--midnight-blue);
+  display: grid;
+  place-items: center;
+}
+button {
+  cursor: pointer;
+}
