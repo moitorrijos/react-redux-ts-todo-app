@@ -1,0 +1,32 @@
+form {
+  box-shadow: 0 -1px 22px rgba(0, 0, 0, 0.35);
+}
+label {
+  font-family: inherit;
+  display: block;
+  padding: 0.5rem 1rem;
+  background: var(--light-gray);
+}
+.todo-input-button {
+  display: flex;
+}
+form input {
+  flex-grow: 1;
+  border: none;
+  padding: 1rem;
+  font: inherit;
+}
+input:focus {
+  outline: 2px solid var(--gold);
+}
+button.add-task {
+  border: none;
+  border-radius: 0;
+  padding: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--gold);
+  color: black;
+  text-transform: uppercase;
+}

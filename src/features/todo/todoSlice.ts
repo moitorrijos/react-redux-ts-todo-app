@@ -37,18 +37,24 @@ export const todoSlice = createSlice({
       };
       state.push(newTodo);
     },
-    editTodo: (state, action: PayloadAction<{ id: number; text: string }>) => {
+    updateTodo: (state, action: PayloadAction<{ id: number; text: string }>) => {
       const todo = state.find(todo => todo.id === action.payload.id);
       if (todo) {
         todo.text = action.payload.text;
       }
     },
-    removeTodo: (state, action: PayloadAction<number>) => {
+    deleteTodo: (state, action: PayloadAction<number>) => {
       return state.filter(todo => todo.id !== action.payload);
+    },
+    toggleTodo: (state, action: PayloadAction<{id: number, completed: boolean}>) => {
+      const todo = state.find(todo => todo.id === action.payload.id);
+      if (todo) {
+        todo.completed = action.payload.completed;
+      }
     }
   },
 });
 
-export const { addTodo, editTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, deleteTodo, toggleTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;

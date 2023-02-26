@@ -1,0 +1,68 @@
+ul.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--gold);
+  height: 55vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+li {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--gold);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 1rem;
+}
+li span.text {
+  flex-grow: 1;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+input[type="text"] {
+  font: inherit;
+  border: 0;
+  flex-grow: 1;
+  background: transparent;
+}
+li.completed input[type="text"] {
+  text-decoration: line-through;
+}
+button.delete-task {
+  background: transparent;
+  display: flex;
+  align-items: center;
+}
+button svg {
+  width: 20px;
+  height: 1rem;
+}
+
+// React Transition Group
+.list-enter-active {
+  transition: all 1s ease-out;
+}
+.list-leave-active {
+  transition: all 0.5s ease-out;
+}
+.list-enter {
+  opacity: 0;
+  background-color: #fdc465;
+}
+.list-enter-to {
+  opacity: 1;
+  background-color: white;
+}
+.list-leave {
+  opacity: 1;
+  transform: translateX(0);
+  max-height: 100%;
+}
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+  max-height: 0;
+}
