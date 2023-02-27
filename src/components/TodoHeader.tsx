@@ -8,14 +8,16 @@ function TodoHeader() {
     <header>
       <h1>
         {todos.length === 0
-          ? "No task"
+          ? "No tasks"
           : todos.length === 1
           ? "1 task"
-          : `${todos.length} task`}
+          : `${todos.length} tasks`}
       </h1>
       <h2>
         {todos.filter((todo) => !todo.completed).length === 0 ? (
-          <span>No pending tasks</span>
+          <span>No pending tasks, create one below</span>
+        ) : todos.filter((todo) => !todo.completed).length === 1 ? (
+          <span>1 task pending</span>
         ) : (
           <span>
             {todos.filter((todo) => !todo.completed).length} tasks pending
