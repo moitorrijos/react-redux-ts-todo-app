@@ -8,4 +8,12 @@
   width: 70vw;
   min-width: 380px;
   max-width: 600px;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .App {
+    width: 100vw;
+    height: 100dvh;
+  }
 }

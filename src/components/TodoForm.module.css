@@ -1,3 +1,6 @@
+.form-background-blur {
+  display: none;
+}
 form {
   box-shadow: 0 -1px 22px rgba(0, 0, 0, 0.35);
 }
@@ -10,11 +13,12 @@ label {
 .todo-input-button {
   display: flex;
 }
-form input {
+form input[type="text"] {
   flex-grow: 1;
   border: none;
   padding: 1rem;
   font: inherit;
+  background: #fff;
 }
 input:focus {
   outline: 2px solid var(--gold);
@@ -29,4 +33,31 @@ button.add-task {
   background: var(--gold);
   color: black;
   text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .form-background-blur {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    backdrop-filter: blur(3px);
+  }
+  form {
+    z-index: 2;
+    padding: 0 0.33rem;
+    position: absolute;
+    width: 100%;
+    bottom: 50%;
+    transform: translateY(0);
+    /* opacity: 0; */
+    pointer-events: none;
+  }
+  .todo-input-button {
+    flex-direction: column;
+  }
 }
